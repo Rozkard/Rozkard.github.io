@@ -1,0 +1,14 @@
+body{
+    background-color: aqua;
+}
+
+form{
+    margin-left: 30%;
+    margin-top: 10%;
+    width: 30%;
+    height: 240px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 5%;
+    text-align: center;
+}

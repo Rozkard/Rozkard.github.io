@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href = "style.css">
+    <title>Document</title>
+
+    <script>
+        count = [];
+        last_minute = [];
+        function js_event(number){
+            if(document.getElementById('a' + number).checked){
+                current_minute = new Date();
+                if((current_minute-last_minute[number] <= 60000)){
+                    count[number]++;
+                }
+                else{
+                    last_minute[number] = new Date();
+                    count[number]= 1;
+                }
+                window.statusbar = 'Кількість спрацьовувань ' + document.getElementById('a' + number).name + ' : ' + count[number];
+                alert(window.statusbar);
+            }
+        }
+    </script>
+</head>
+<body onload="CalulateEquinox()">
+    <form  method="post" name="form" action = "JavaScript:form.result.value= CalculateDays() + ' год.';void(0);">
+        <label for="date">Введіть дату у форматі Day/Month/Hour/Minute</label>
+        <input type="text" name = "date" id="date" placeholder="19/11/02/10">
+        <p><input type="submit" value="Save" >
+        <input type="reset" value="Reset"></p>
+        <label for="result">До літа залишилось:</label>
+        <input type="text" name="result" value="" disabled>
+        <p><input type="checkbox" name="answer1" id="a1" onchange="js_event(1)">Варіант 1<Br>
+            <input type="checkbox" name="answer2" id="a2" onchange="js_event(2)">Варіант 2<Br>
+            <input type="checkbox" name="answer3" id="a3" onchange="js_event(3)">Варіант 3</p>
+        <a href="JavaScript:alert([2,3,5,7,11,13,17,19,23,29].join('+'))">10 простих чисел</a>.
+    </form>
+
+<script src= "lr4.js"></script>
+</body>
+</html>
